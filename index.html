@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>테스트</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>서양미술사 완전 정복 교실</title>
+    <!-- 외부 CSS 파일 연결 -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts (Noto Sans KR, Playfair Display) 연결 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 아이콘 라이브러리 연결 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <h1 class="main-title">서양 미술사 완전 정복</h1>
+        <p>인터랙티브 활동으로 예술의 흐름을 한눈에 파악하세요.</p>
+    </header>
+
+    <main>
+        <!-- 인터랙티브 타임라인 섹션 -->
+        <section id="timeline-section" class="card">
+            <h2><i class="fas fa-stream"></i> 예술의 흐름: 인터랙티브 타임라인</h2>
+            <p>타임라인의 각 시대를 클릭하여 핵심 특징을 미리 살펴보세요.</p>
+            <div class="timeline">
+                <!-- 르네상스 타임라인 아이템 -->
+                <div class="timeline-item" data-era="renaissance">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>르네상스</h3>
+                        <p>14-16세기</p>
+                    </div>
+                </div>
+                <!-- 바로크 타임라인 아이템 -->
+                <div class="timeline-item" data-era="baroque">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>바로크</h3>
+                        <p>17-18세기</p>
+                    </div>
+                </div>
+                <!-- 인상주의 타임라인 아이템 -->
+                <div class="timeline-item" data-era="impressionism">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>인상주의</h3>
+                        <p>19세기</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 타임라인 정보 표시 상자 -->
+            <div id="timeline-info-box">
+                <h4 id="info-era-title"></h4>
+                <p id="info-era-desc"></p>
+            </div>
+        </section>
+
+        <!-- 1차시: 르네상스 섹션 -->
+        <section id="renaissance" class="card">
+            <div class="card-header">
+                <div class="card-icon"><i class="fas fa-users"></i></div>
+                <div>
+                    <h2>1차시: 르네상스 - 인간의 재발견</h2>
+                    <p class="subtitle">화가와 작품, 천재들의 시대</p>
+                </div>
+            </div>
+            <div class="activity-box">
+                <h3><i class="fas fa-gamepad"></i> 활동: 화가와 작품 매칭 게임</h3>
+                <p>작품 카드를 올바른 화가 이름 위로 드래그하여 연결해주세요.</p>
+                <div id="matching-game-container">
+                    <!-- 화가 슬롯 (드롭 대상) -->
+                    <div class="artist-slots">
+                        <div class="artist-slot" data-artist="leonardo">레오나르도 다빈치</div>
+                        <div class="artist-slot" data-artist="michelangelo">미켈란젤로</div>
+                    </div>
+                    <!-- 작품 카드 (드래그 가능) -->
+                    <div class="artwork-cards">
+                        <div class="artwork-card" draggable="true" data-artist="leonardo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/159px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg" alt="모나리자">
+                            <span>모나리자</span>
+                        </div>
+                        <div class="artwork-card" draggable="true" data-artist="michelangelo">
+                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Michelangelo%27s_David_-_right_view_2.jpg/159px-Michelangelo%27s_David_-_right_view_2.jpg" alt="다비드상">
+                            <span>다비드상</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2차시: 바로크 섹션 -->
+        <section id="baroque" class="card">
+            <div class="card-header">
+                <div class="card-icon"><i class="fas fa-bolt"></i></div>
+                <div>
+                    <h2>2차시: 바로크 - 극적인 순간</h2>
+                    <p class="subtitle">빛과 어둠, 감정의 소용돌이</p>
+                </div>
+            </div>
+            <div class="activity-box">
+                <h3><i class="fas fa-search"></i> 활동: 바로크 특징 찾기</h3>
+                <p>오른쪽 그림은 왼쪽 원본에서 바로크의 특징이 일부 제거되었습니다. 다른 점 3곳을 찾아 클릭해보세요.</p>
+                <div id="spot-the-difference-container">
+                    <!-- 원본 이미지 -->
+                    <div class="image-half original">
+                        <img src="https://images.pexels.com/photos/1731663/pexels-photo-1731663.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="바로크 원본">
+                        <!-- 클릭 가능한 차이점 (숨겨져 있음) -->
+                        <div class="diff-point" data-id="1" style="top: 50%; left: 60%;"></div>
+                    </div>
+                    <!-- 수정된 이미지 -->
+                    <div class="image-half modified">
+                        <img src="https://images.pexels.com/photos/1731663/pexels-photo-1731663.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1&bri=-20&con=-30" alt="바로크 수정본">
+                        <!-- 클릭 가능한 차이점 -->
+                        <div class="diff-point" data-id="2" style="top: 25%; left: 30%;"></div>
+                        <div class="diff-point" data-id="3" style="top: 70%; left: 75%;"></div>
+                    </div>
+                </div>
+                <p id="diff-feedback">찾은 개수: <span id="found-count">0</span> / 3</p>
+            </div>
+        </section>
+
+        <!-- 3차시: 인상주의 섹션 -->
+        <section id="impressionism" class="card">
+             <div class="card-header">
+                <div class="card-icon"><i class="fas fa-sun"></i></div>
+                <div>
+                    <h2>3차시: 인상주의 - 빛의 인상</h2>
+                    <p class="subtitle">순간을 포착한 화가들</p>
+                </div>
+            </div>
+            <div class="activity-box">
+                <h3><i class="fas fa-question-circle"></i> 활동: 이 그림의 화가는?</h3>
+                <p>제시된 그림을 보고 어떤 화가의 작품인지 맞춰보세요.</p>
+                <div id="artist-quiz-container">
+                    <div id="quiz-image-wrapper">
+                        <img id="quiz-image" src="" alt="퀴즈 이미지">
+                    </div>
+                    <div id="quiz-options"></div>
+                    <p id="quiz-feedback"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 최종 비교 인포그래픽 섹션 -->
+        <section id="summary-infographic" class="card">
+            <h2><i class="fas fa-chart-bar"></i> 최종 정리: 시대별 비교 인포그래픽</h2>
+            <p>세 시대의 예술 사조를 한눈에 비교하며 학습한 내용을 정리해봅시다.</p>
+            <div class="comparison-table">
+                <!-- 테이블 헤더 -->
+                <div class="table-header">
+                    <div>특징</div>
+                    <div>르네상스</div>
+                    <div>바로크</div>
+                    <div>인상주의</div>
+                </div>
+                <!-- 각 시대별 특징 행 -->
+                <div class="table-row">
+                    <div class="row-title">주제</div>
+                    <div>신화, 종교, 인물</div>
+                    <div>종교, 역사, 극적 사건</div>
+                    <div>일상, 자연, 도시 풍경</div>
+                </div>
+                <div class="table-row">
+                    <div class="row-title">분위기</div>
+                    <div>안정, 조화, 이성</div>
+                    <div>역동, 극적, 감정</div>
+                    <div>찰나, 빛, 생동감</div>
+                </div>
+                <div class="table-row">
+                    <div class="row-title">기법</div>
+                    <div>원근법, 명확한 윤곽선</div>
+                    <div>강한 명암, 대각선 구도</div>
+                    <div>짧은 붓터치, 색채 분할</div>
+                </div>
+                <div class="table-row">
+                    <div class="row-title">대표 화가</div>
+                    <div>다빈치, 미켈란젤로</div>
+                    <div>카라바조, 렘브란트</div>
+                    <div>모네, 르누아르</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 서양 미술사 완전 정복 교실</p>
+    </footer>
+
+    <!-- 외부 JavaScript 파일 연결 -->
+    <script src="script.js"></script>
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,402 @@
+/* 기본 변수 설정 */
+:root {
+    --bg-color: #f8f9fa; /* 배경색 */
+    --text-color: #212529; /* 기본 텍스트 색상 */
+    --primary-font: 'Noto Sans KR', sans-serif; /* 기본 폰트 */
+    --title-font: 'Playfair Display', serif; /* 제목 폰트 */
+    --accent-color-1: #2c3e50; /* 강조색 1 (진한 파랑-회색) */
+    --accent-color-2: #34495e; /* 강조색 2 (조금 더 밝은 파랑-회색) */
+    --accent-color-3: #f1c40f; /* 강조색 3 (노랑) */
+    --accent-color-4: #e67e22; /* 강조색 4 (주황) */
+    --correct-color: #2ecc71; /* 정답 색상 (초록) */
+    --wrong-color: #e74c3c; /* 오답 색상 (빨강) */
+    --card-shadow: 0 12px 35px rgba(0, 0, 0, 0.07); /* 카드 그림자 */
+}
+
+/* 기본 HTML 요소 스타일 */
+body {
+    font-family: var(--primary-font);
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+/* 헤더 스타일 */
+header {
+    background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.85)), url(https://images.pexels.com/photos/102575/pexels-photo-102575.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1) no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 5rem 1rem;
+}
+
+.main-title {
+    font-family: var(--title-font);
+    font-size: 3.5rem;
+    margin: 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* 메인 콘텐츠 영역 */
+main {
+    padding: 3rem 1rem;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+/* 카드 스타일 (각 섹션) */
+.card {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: var(--card-shadow);
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+    opacity: 0; /* 초기에는 숨김 */
+    transform: translateY(30px); /* 아래에서 위로 올라오는 애니메이션 효과 */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.card.visible {
+    opacity: 1; /* 스크롤 시 나타나도록 */
+    transform: translateY(0);
+}
+
+/* 카드 헤더 스타일 */
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.card-icon {
+    font-size: 2rem;
+    color: var(--accent-color-1);
+    background-color: #ecf0f1;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+}
+
+.card-header h2 {
+    font-family: var(--title-font);
+    color: var(--accent-color-1);
+    margin: 0;
+}
+
+.subtitle {
+    font-weight: 700;
+    color: var(--accent-color-4);
+    margin: 0;
+}
+
+/* 활동 상자 스타일 */
+.activity-box {
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: #fbfdff;
+    border-radius: 12px;
+    border: 1px solid #eef2f6;
+}
+
+/* 타임라인 섹션 */
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 20px 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 29px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #e0e0e0;
+}
+
+.timeline-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.timeline-dot {
+    width: 20px;
+    height: 20px;
+    background: white;
+    border: 4px solid #e0e0e0;
+    border-radius: 50%;
+    z-index: 1;
+    transition: all 0.3s;
+}
+
+.timeline-item.active .timeline-dot {
+    border-color: var(--accent-color-3);
+    transform: scale(1.5);
+}
+
+.timeline-content {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#timeline-info-box {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: #ecf0f1;
+    border-radius: 8px;
+    min-height: 50px;
+    transition: all 0.5s;
+}
+
+#timeline-info-box h4 {
+    margin: 0 0 5px 0;
+    color: var(--accent-color-1);
+}
+
+/* 르네상스: 매칭 게임 */
+#matching-game-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.artist-slots {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.artist-slot {
+    padding: 2rem 3rem;
+    border: 2px dashed #bdc3c7;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 700;
+    transition: all 0.3s;
+}
+
+.artist-slot.over {
+    background: #ecf0f1;
+    border-color: var(--accent-color-3);
+}
+
+.artist-slot.correct {
+    border-style: solid;
+    border-color: var(--correct-color);
+    background: #f0fff4;
+}
+
+.artwork-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.artwork-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: #f1f3f5;
+    border-radius: 8px;
+    cursor: grab;
+}
+
+.artwork-card img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* 바로크: 틀린 그림 찾기 */
+#spot-the-difference-container {
+    display: flex;
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+}
+
+.image-half {
+    flex: 1;
+    position: relative;
+}
+
+.image-half img {
+    width: 100%;
+    display: block;
+}
+
+.original img {
+    border-radius: 10px 0 0 10px;
+}
+
+.modified {
+    /* 바로크의 극적인 대비를 표현하기 위한 필터 효과 */
+    filter: brightness(1.2) contrast(0.8);
+}
+
+.modified img {
+    border-radius: 0 10px 10px 0;
+}
+
+.diff-point {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: 3px solid transparent; /* 초기에는 투명한 테두리 */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.diff-point.found {
+    border-color: var(--correct-color);
+    background: rgba(46, 204, 113, 0.3); /* 찾았을 때 초록색 배경 */
+}
+
+#diff-feedback {
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: 700;
+}
+
+/* 인상주의: 화가 퀴즈 */
+#artist-quiz-container {
+    text-align: center;
+}
+
+#quiz-image-wrapper {
+    max-width: 400px;
+    margin: 0 auto 1.5rem auto;
+}
+
+#quiz-image {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+#quiz-options {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.quiz-option-btn {
+    background: var(--accent-color-1);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.quiz-option-btn:hover {
+    background: var(--accent-color-2);
+}
+
+.quiz-option-btn.correct {
+    background: var(--correct-color);
+}
+
+.quiz-option-btn.wrong {
+    background: var(--wrong-color);
+}
+
+#quiz-feedback {
+    margin-top: 1rem;
+    font-weight: 700;
+    min-height: 24px; /* 피드백 메시지 공간 확보 */
+}
+
+/* 최종 비교 인포그래픽 테이블 */
+.comparison-table {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr; /* 특징, 르네상스, 바로크, 인상주의 열 */
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    overflow: hidden; /* 모서리 둥글게 처리 */
+}
+
+.comparison-table > div {
+    padding: 1rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.comparison-table > div:not(:last-child) {
+    border-right: 1px solid #dee2e6;
+}
+
+.table-header {
+    display: contents; /* 그리드 레이아웃 유지 */
+}
+
+.table-header > div {
+    background: var(--accent-color-1);
+    color: white;
+    font-weight: 700;
+}
+
+.table-row {
+    display: contents; /* 그리드 레이아웃 유지 */
+}
+
+.table-row:last-child > div {
+    border-bottom: none; /* 마지막 행은 하단 테두리 없음 */
+}
+
+.row-title {
+    font-weight: 700;
+    background: #ecf0f1;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+
+    #matching-game-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .artist-slot {
+        width: 80%;
+        padding: 1.5rem;
+    }
+
+    .artwork-cards {
+        width: 80%;
+    }
+
+    #spot-the-difference-container {
+        flex-direction: column;
+    }
+
+    .original img, .modified img {
+        border-radius: 10px;
+    }
+
+    .comparison-table {
+        grid-template-columns: 1fr; /* 모바일에서는 한 열로 표시 */
+    }
+
+    .comparison-table > div:not(:last-child) {
+        border-right: none;
+    }
+}
